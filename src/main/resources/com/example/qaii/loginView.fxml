@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.qaii.controllers.loginController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label fx:id="usernameLabel" layoutX="58.0" layoutY="92.0" text="Username" />
+        <Label fx:id="passwordLabel" layoutX="58.0" layoutY="149.0" text="Password" />
+        <TextField fx:id="usernameField" layoutX="148.0" layoutY="88.0" />
+        <PasswordField fx:id="passwordField" layoutX="148.0" layoutY="145.0" />
+        <Button fx:id="loginButton" layoutX="58.0" layoutY="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" text="Login" />
+        <Button fx:id="resetButton" layoutX="163.0" layoutY="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" text="Reset" onAction="#resetButton"/>
+        <Button fx:id="cancelButton" layoutX="272.0" layoutY="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" text="Cancel" onAction="#cancelButton"/>
+        <Label fx:id="timezoneLabel" layoutX="98.0" layoutY="311.0" text="Timezone" />
+        <Label fx:id="timezoneField" layoutX="237.0" layoutY="311.0" text="Label" />
+    </children>
+</AnchorPane>
