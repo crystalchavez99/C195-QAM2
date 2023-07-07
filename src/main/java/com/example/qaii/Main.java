@@ -19,7 +19,7 @@ public class Main extends Application {
 
     public static void main(String[] args) throws Exception {
         DAO.startCon();
-        launch();
+        launch(args);
         DAO.closeCon();
     }
 }
