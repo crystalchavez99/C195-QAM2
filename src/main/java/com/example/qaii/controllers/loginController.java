@@ -63,39 +63,6 @@ public class loginController implements Initializable{
         }catch(MissingResourceException e) {
             System.out.println("Resource file missing: " + e);
         }
-//        try{
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            System.out.println("Driver loaded!");
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/client_schedule","root","password");
-//            String username = usernameField.getText();
-//            String password = passwordField.getText();
-//
-//            Statement stm = con.createStatement();
-//            String sql = "Select * from user where user_name='"+username+"' and Password='"+password+"'";
-//
-//
-//            ResultSet rs = stm.executeQuery(sql);
-//            System.out.println("Status: " + rs);
-//
-//
-//            if(rs.next()){
-////                int userId = rs.getInt("user_id");
-//                FXMLLoader homePage = new FXMLLoader(Main.class.getResource("homeView.fxml"));
-//                Parent homeP= homePage.load();
-//                Scene homeScene = new Scene(homeP);
-//                Stage homeStage = new Stage();
-//                homeStage.setScene(homeScene);
-//                homeStage.show();
-//            }else{
-////                JOptionPane.showMessageDialog(this, "username or password is wrong...");
-//                Alert invalid = new Alert(Alert.AlertType.WARNING);
-//                usernameField.setText("");
-//                passwordField.setText("");
-//            }
-//            con.close();
-//        }catch(Exception e){
-//            System.out.println(e.getMessage());
-//        }
     }
 
     @FXML
@@ -112,11 +79,13 @@ public class loginController implements Initializable{
 
     @FXML
     public void loginButton(ActionEvent event) throws IOException {
+
         try{
             System.out.println("CLICKED");
             String username = usernameField.getText();
             String password = passwordField.getText();
             int userId = UserDB.loginUser(username,password);
+            //ResourceBundle rb = ResourceBundle.getBundle("languages/login", Locale.getDefault());
             if(userId >= 0){
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("homeView.fxml"));
@@ -125,6 +94,11 @@ public class loginController implements Initializable{
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Incorrect");
+                alert.show();
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
