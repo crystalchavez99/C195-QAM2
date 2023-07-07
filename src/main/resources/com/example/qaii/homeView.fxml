@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.qaii.controllers.homeController">
    <children>
       <Label layoutX="243.0" layoutY="40.0" text="Home Menu">
@@ -16,6 +15,6 @@
       <Button layoutX="253.0" layoutY="103.0" mnemonicParsing="false" text="Appointments" />
       <Button layoutX="264.0" layoutY="174.0" mnemonicParsing="false" text="Customers" />
       <Button layoutX="273.0" layoutY="252.0" mnemonicParsing="false" text="Reports" />
-      <Button layoutX="525.0" layoutY="360.0" mnemonicParsing="false" text="Log Out" />
+      <Button id="logoutButton" fx:id="logoutButton" layoutX="525.0" layoutY="360.0" mnemonicParsing="false" onAction="#logoutButton" text="Log Out" />
    </children>
 </AnchorPane>
