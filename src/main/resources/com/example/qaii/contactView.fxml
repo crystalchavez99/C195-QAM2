@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.qaii.controllers.contactController">
    <children>
       <Label fx:id="customerLabel" layoutX="14.0" layoutY="14.0" text="Customers">
          <font>
@@ -24,6 +24,6 @@
             <TableColumn prefWidth="75.0" text="State" />
         </columns>
       </TableView>
-      <Button fx:id="backButton" layoutX="528.0" layoutY="360.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="backButton" layoutX="528.0" layoutY="360.0" mnemonicParsing="false" text="Back" onAction="#backButton"/>
    </children>
 </AnchorPane>
