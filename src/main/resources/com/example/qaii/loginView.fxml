@@ -15,7 +15,7 @@
         <Label fx:id="passwordLabel" layoutX="58.0" layoutY="149.0" text="Password" />
         <TextField fx:id="usernameField" layoutX="148.0" layoutY="88.0" />
         <PasswordField fx:id="passwordField" layoutX="148.0" layoutY="145.0" />
-        <Button fx:id="loginButton" layoutX="58.0" layoutY="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" text="Login" />
+        <Button fx:id="loginButton" layoutX="58.0" layoutY="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" text="Login" onAction="#loginButton"/>
         <Button fx:id="resetButton" layoutX="163.0" layoutY="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" text="Reset" onAction="#resetButton"/>
         <Button fx:id="cancelButton" layoutX="272.0" layoutY="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" text="Cancel" onAction="#cancelButton"/>
         <Label fx:id="timezoneLabel" layoutX="98.0" layoutY="311.0" text="Timezone" />

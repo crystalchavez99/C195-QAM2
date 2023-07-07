@@ -12,12 +12,12 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Software 2!");
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         DAO.startCon();
         launch();
         DAO.closeCon();

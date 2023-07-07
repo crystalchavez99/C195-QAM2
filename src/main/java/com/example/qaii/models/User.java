@@ -12,15 +12,11 @@ public class User {
     private String last_updated_by;
 
 
-//    public User(int user_id,String user_name,String password, LocalDateTime create_date, String created_by, LocalDateTime last_update,String last_updated_by){
-//        this.user_id = user_id;
-//        this.user_name = user_name;
-//        this.password = password;
-//        this.create_date = create_date;
-//        this.created_by = created_by;
-//        this.last_update = last_update;
-//        this.last_updated_by = last_updated_by;
-//    }
+    public User(){
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.password = password;
+    }
 
     public int getUser_id(){
         return user_id;
