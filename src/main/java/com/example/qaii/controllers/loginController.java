@@ -119,7 +119,7 @@ public class loginController implements Initializable{
             int userId = UserDB.loginUser(username,password);
             if(userId >= 0){
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("homeView.fxml"));
+                loader.setLocation(Main.class.getResource("homeView.fxml"));
                 Parent root = loader.load();
                 stage = (Stage) loginButton.getScene().getWindow();
                 Scene scene = new Scene(root);
