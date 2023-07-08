@@ -23,8 +23,10 @@ public class UserDB extends User {
             rs.next();
 //            return rs.getInt("user_id");
             if(rs.getString("user_name").equals(username)){
-                System.out.println("LOGGED IN");
-                return rs.getInt("user_id");
+                if(rs.getString("password").equals(password)){
+                    System.out.println("LOGGED IN");
+                    return rs.getInt("user_id");
+                }
             }
         }catch (SQLException e)
         {

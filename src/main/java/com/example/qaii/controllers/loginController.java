@@ -97,7 +97,7 @@ public class loginController implements Initializable{
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Incorrect");
+                alert.setContentText("Invalid Credentials!");
                 alert.show();
             }
         }catch(Exception e){
