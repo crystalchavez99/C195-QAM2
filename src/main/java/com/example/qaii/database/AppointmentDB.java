@@ -26,9 +26,13 @@ public class AppointmentDB {
             LocalDateTime start = rs.getTimestamp("start").toLocalDateTime();
             LocalDateTime end = rs.getTimestamp("end").toLocalDateTime();
             int customer_id = rs.getInt("customer_id");
-            int user_id = rs.getInt("User_id");
-            int contact_id = rs.getInt("Contact_id");
+            int user_id = rs.getInt("user_id");
+            int contact_id = rs.getInt("contact_id");
+            int division_id = rs.getInt("division_id");
+            Appointment appointment = new Appointment(appointment_id, appointment_title, appointment_description, appointment_location, appointment_type, start, end, customer_id, user_id, contact_id, division_id);
+            allAppointments.add(appointment);
         }
+        System.out.println("All appointments:" + allAppointments);
         return allAppointments;
     }
 }

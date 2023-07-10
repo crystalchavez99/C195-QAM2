@@ -3,6 +3,7 @@ package com.example.qaii.models;
 import java.time.LocalDateTime;
 
 public class Appointment {
+    private int division_id;
     private int appointment_id;
 
     private String title;
@@ -29,7 +30,7 @@ public class Appointment {
 
     private int user_id;
 
-    private Contact contact_id;
+    private int contact_id;
 
     /*
     The constructor for the Appointment
@@ -48,7 +49,7 @@ public class Appointment {
     @param user_id is the user id of the Appointment
     @param contact_id is the contact id of the Appointment
      */
-    public Appointment(int appointment_id, String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, int customer_id, int user_id, Contact contact_id) {
+    public Appointment(int appointment_id, String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, int customer_id, int user_id, int contact_id, int division_id) {
         this.appointment_id = appointment_id;
         this.title = title;
         this.description = description;
@@ -63,6 +64,7 @@ public class Appointment {
         this.customer_id = customer_id;
         this.user_id = user_id;
         this.contact_id = contact_id;
+        this.division_id = division_id;
     }
 
     /*
@@ -301,7 +303,7 @@ public class Appointment {
  Getter: gets to return contact_id
   @return contact_id
   */
-    public Contact getContact() {
+    public int getContact() {
         return contact_id;
     }
 
@@ -309,8 +311,15 @@ public class Appointment {
     Sets the contact_id for Appointment
     @param contact_id
      */
-    public void setContact(Contact contact_id) {
+    public void setContact(int contact_id) {
         this.contact_id = contact_id;
     }
 
+    public int getDivision_id() {
+        return division_id;
+    }
+
+    public void setDivision_id(int division_id) {
+        this.division_id = division_id;
+    }
 }
