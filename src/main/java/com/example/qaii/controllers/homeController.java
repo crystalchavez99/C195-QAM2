@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -48,10 +49,12 @@ public class homeController {
                 }
             }
             if(appointmentRange){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Appointment within 15 minutes: " + appointment_id + " and appointment start time of: " + displayTime);
+                alert.showAndWait();
                 notification.setText("There is an appointment within 15 minutes");
             }else{
-                System.out.println("No appointments");
-
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "No upcoming appointments.");
+                alert.showAndWait();
                 notification.setText("There is no upcoming appointments!");
             }
         }catch (Exception e){
