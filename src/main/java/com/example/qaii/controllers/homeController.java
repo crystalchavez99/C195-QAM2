@@ -26,8 +26,8 @@ public class homeController {
     @FXML
     private Text notification;
 
-    @FXML
-    public void initialize(URL url) throws SQLException, IOException, Exception  {
+
+    public void initialize() throws SQLException  {
         try{
             ObservableList<Appointment> getAllAppointments = AppointmentDB.getAllAppointments();
             LocalDateTime before15Min = LocalDateTime.now().minusMinutes(15);
@@ -50,6 +50,8 @@ public class homeController {
             if(appointmentRange){
                 notification.setText("There is an appointment within 15 minutes");
             }else{
+                System.out.println("No appointments");
+
                 notification.setText("There is no upcoming appointments!");
             }
         }catch (Exception e){
