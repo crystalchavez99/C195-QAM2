@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -22,12 +23,35 @@ public class homeController {
     @FXML
     private Button logoutButton;
 
-    public void initialize() throws SQLException, IOException, Exception  {
+    @FXML
+    private Text notification;
+
+    @FXML
+    public void initialize(URL url) throws SQLException, IOException, Exception  {
         try{
             ObservableList<Appointment> getAllAppointments = AppointmentDB.getAllAppointments();
             LocalDateTime before15Min = LocalDateTime.now().minusMinutes(15);
             LocalDateTime after15Min = LocalDateTime.now().plusMinutes(15);
+            LocalDateTime time = null;
+            int appointment_id = 0;
+            LocalDateTime displayTime = null;
+            boolean appointmentRange = false;
 
+            for(Appointment appointment: getAllAppointments){
+                time = appointment.getStart();
+                if(time.isAfter(before15Min) || time.isEqual(before15Min)){
+                    if(time.isBefore(after15Min) || time.isEqual(after15Min)){
+                        appointment_id = appointment.getAppointmentId();
+                        displayTime = time;
+                        appointmentRange = true;
+                    }
+                }
+            }
+            if(appointmentRange){
+                notification.setText("There is an appointment within 15 minutes");
+            }else{
+                notification.setText("There is no upcoming appointments!");
+            }
         }catch (Exception e){
             System.out.println(e);
         }
