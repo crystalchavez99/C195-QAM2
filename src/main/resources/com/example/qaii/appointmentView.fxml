@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.qaii.controllers.appointmentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.qaii.controllers.appointmentController">
    <children>
       <Label fx:id="appointmentLabel" layoutX="14.0" layoutY="14.0" text="Appointments">
          <font>
@@ -23,11 +23,11 @@
             <TableColumn prefWidth="49.0" text="Type" />
             <TableColumn prefWidth="51.0" text="Start" />
             <TableColumn prefWidth="66.0" text="End" />
-            <TableColumn prefWidth="70.0" text="Customer ID" />
-            <TableColumn prefWidth="100.0" text="Contact ID" />
+            <TableColumn text="Customer ID" />
+            <TableColumn prefWidth="90.0" text="Contact ID" />
             <TableColumn prefWidth="76.0" text="User ID" />
         </columns>
       </TableView>
-      <Button fx:id="backButton" layoutX="641.0" layoutY="402.0" mnemonicParsing="false" text="Back" onAction="#backButton"/>
+      <Button fx:id="backButton" layoutX="641.0" layoutY="402.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
    </children>
 </AnchorPane>

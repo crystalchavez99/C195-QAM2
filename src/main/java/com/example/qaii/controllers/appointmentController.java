@@ -5,11 +5,16 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
 public class appointmentController {
 
     @FXML
     public void backButton(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+    public void initialize() throws SQLException {
+    }
     }
 }

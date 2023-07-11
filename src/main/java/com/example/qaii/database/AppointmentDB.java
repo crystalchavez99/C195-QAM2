@@ -5,6 +5,7 @@ import com.example.qaii.models.Appointment;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,5 +35,14 @@ public class AppointmentDB {
         }
         System.out.println("All appointments:" + allAppointments);
         return allAppointments;
+    }
+
+    public static int deleteAppointment(int appointment_id, Connection connection) throws SQLException{
+        String query = "DELETE FROM appointment WHERE appointment_id=?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(0, appointment_id);
+        int removed = ps.executeUpdate();
+        ps.close();
+        return removed;
     }
 }
