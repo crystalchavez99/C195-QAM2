@@ -3,6 +3,7 @@ package com.example.qaii.controllers;
 import com.example.qaii.DAO;
 import com.example.qaii.database.AppointmentDB;
 import com.example.qaii.models.Appointment;
+import com.example.qaii.models.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +18,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class appointmentController {
@@ -27,27 +30,29 @@ public class appointmentController {
     ObservableList<Appointment> appointmentList = FXCollections.observableArrayList();
 
     @FXML
-    private TableColumn<?, ?> appointment_id;
+    private TableColumn<Appointment, Integer> appointment_id;
     @FXML
-    private TableColumn<?, ?> title;
+    private TableColumn<Appointment, String> title;
     @FXML
-    private TableColumn<?, ?> description;
+    private TableColumn<Appointment, String> description;
     @FXML
-    private TableColumn<?, ?> location;
+    private TableColumn<Appointment, String> location;
     @FXML
-    private TableColumn<?, ?> type;
+    private TableColumn<Appointment, String> type;
     @FXML
-    private TableColumn<?, ?> start;
+    private TableColumn<Appointment, String> start;
     @FXML
-    private TableColumn<?, ?> end;
+    private TableColumn<Appointment, String> end;
     @FXML
-    private TableColumn<?, ?> customer_id;
+    private TableColumn<Appointment, Integer> customer_id;
     @FXML
-    private TableColumn<?, ?> contact_id;
+    private TableColumn<Appointment, Integer> contact_id;
     @FXML
-    private TableColumn<?, ?> user_id;
+    private TableColumn<Appointment, Integer> user_id;
 
     private final DateTimeFormatter datetimeDTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private final ZoneId localZoneID = ZoneId.systemDefault();
+    private final ZoneId utcZoneID = ZoneId.of("UTC");
 
     @FXML
     public void backButton(ActionEvent event) {
@@ -103,6 +108,15 @@ public class appointmentController {
                 LocalDateTime utcStartDT = LocalDateTime.parse(startUTC, datetimeDTF);
                 LocalDateTime utcEndDT = LocalDateTime.parse(endUTC, datetimeDTF);
 
+                //convert times UTC zoneId to local zoneId
+                ZonedDateTime localZoneStart = utcStartDT.atZone(utcZoneID).withZoneSameInstant(localZoneID);
+                ZonedDateTime localZoneEnd = utcEndDT.atZone(utcZoneID).withZoneSameInstant(localZoneID);
+
+
+                //convert ZonedDateTime to a string for insertion into AppointmentsTableView
+                String localStartDT = localZoneStart.format(datetimeDTF);
+                String localEndDT = localZoneEnd.format(datetimeDTF);
+
                 //get title from appointment
                 String title = rs.getString("title");
 
@@ -111,7 +125,11 @@ public class appointmentController {
 
                 //put Customer data into Customer object
                 Customer customer = new Customer(rs.getInt("customer_id"), rs.getString("customer_name"));
-                String customerName = customer.getCustomerName();
+                String customer_name = customer.getCustomer_name();
+                System.out.println("Customer Name: " + customerName);
+
+                String user = rs.getString("created_by");
+                appointmentList.add(new Appointment(appointment_id, title, description, location, type, localStartDT, localEndDT, customer_name, user));
             }
         } catch (Exception e) {
             System.out.println("Something other than SQL has caused an error!");
