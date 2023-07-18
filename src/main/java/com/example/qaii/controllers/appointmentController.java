@@ -1,32 +1,17 @@
 package com.example.qaii.controllers;
 
-import com.example.qaii.DAO;
-import com.example.qaii.Main;
 import com.example.qaii.database.AppointmentDB;
 import com.example.qaii.models.Appointment;
-import com.example.qaii.models.Customer;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.controlsfx.control.action.Action;
 
-import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class appointmentController {
 
@@ -35,28 +20,26 @@ public class appointmentController {
 //
 //    ObservableList<Appointment> appointmentList = FXCollections.observableArrayList();
 //
-//    @FXML
-//    private TableColumn<Appointment, Integer> appointment_id;
+    @FXML
+    private TableColumn<Appointment, String> appointment_idColumn;
 @FXML
 private TableColumn<Appointment, String> titleColumn;
     @FXML
     private TableColumn<Appointment, String> descriptionColumn;
-//    @FXML
-//    private TableColumn<Appointment, String> description;
-//    @FXML
-//    private TableColumn<Appointment, String> location;
-//    @FXML
-//    private TableColumn<Appointment, String> type;
-//    @FXML
-//    private TableColumn<Appointment, String> start;
-//    @FXML
-//    private TableColumn<Appointment, String> end;
-//    @FXML
-//    private TableColumn<Appointment, Integer> customer_id;
-//    @FXML
-//    private TableColumn<Appointment, Integer> contact_id;
-//    @FXML
-//    private TableColumn<Appointment, Integer> user_id;
+@FXML
+private TableColumn<Appointment, String> locationColumn;
+    @FXML
+    private TableColumn<Appointment, String> typeColumn;
+    @FXML
+    private TableColumn<Appointment, String> startColumn;
+    @FXML
+    private TableColumn<Appointment, String> endColumn;
+    @FXML
+    private TableColumn<Appointment, Integer> customer_idColumn;
+    @FXML
+    private TableColumn<Appointment, Integer> contact_idColumn;
+    @FXML
+    private TableColumn<Appointment, Integer> user_idColumn;
 //
 //    private final DateTimeFormatter datetimeDTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 //    private final ZoneId localZoneID = ZoneId.systemDefault();
@@ -71,14 +54,17 @@ private TableColumn<Appointment, String> titleColumn;
     @FXML
     public void initialize() throws SQLException {
         ObservableList<Appointment> getAllAppointments = AppointmentDB.getAllAppointments();
+
+        PropertyValueFactory<Appointment, String> apptId= new PropertyValueFactory<>("Appointment Id");
+        appointment_idColumn.setCellValueFactory(apptId);
         PropertyValueFactory<Appointment, String> apptTitle= new PropertyValueFactory<>("Title");
         titleColumn.setCellValueFactory(apptTitle);
         PropertyValueFactory<Appointment, String> apptDescription= new PropertyValueFactory<>("Description");
         descriptionColumn.setCellValueFactory(apptDescription);
-//        appointment_id.setCellValueFactory(new PropertyValueFactory<>("appointment_id"));
-//        title.setCellValueFactory(new PropertyValueFactory<>("title"));
-//        description.setCellValueFactory(new PropertyValueFactory<>("description"));
-//        location.setCellValueFactory(new PropertyValueFactory<>("location"));
+        PropertyValueFactory<Appointment, String> apptLocation = new PropertyValueFactory<>("Location");
+        locationColumn.setCellValueFactory(apptLocation);
+        PropertyValueFactory<Appointment, String> apptType = new PropertyValueFactory<>("Type");
+        typeColumn.setCellValueFactory(apptType);
 //        type.setCellValueFactory(new PropertyValueFactory<>("type"));
 //        start.setCellValueFactory(new PropertyValueFactory<>("start"));
 //        end.setCellValueFactory(new PropertyValueFactory<>("end"));
