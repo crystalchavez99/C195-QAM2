@@ -16,16 +16,16 @@
       </Label>
       <TableView fx:id="appointmentTable" layoutX="14.0" layoutY="74.0" prefHeight="268.0" prefWidth="672.0">
         <columns>
-          <TableColumn fx:id="appointment_id" prefWidth="40.0" text="ID" />
-          <TableColumn fx:id="title" prefWidth="62.0" text="Title" />
-            <TableColumn fx:id="description" prefWidth="85.0" text="Description" />
-            <TableColumn fx:id="location" prefWidth="71.0" text="Location" />
-            <TableColumn fx:id="type" prefWidth="49.0" text="Type" />
-            <TableColumn fx:id="start" prefWidth="51.0" text="Start" />
-            <TableColumn fx:id="end" prefWidth="66.0" text="End" />
-            <TableColumn fx:id="customer_id" text="Customer ID" />
-            <TableColumn fx:id="contact_id" prefWidth="90.0" text="Contact ID" />
-            <TableColumn fx:id="user_id" prefWidth="76.0" text="User ID" />
+          <TableColumn fx:id="appointment_idColumn" prefWidth="40.0" text="ID" />
+          <TableColumn fx:id="titleColumn" prefWidth="62.0" text="Title" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="85.0" text="Description" />
+            <TableColumn fx:id="locationColumn" prefWidth="71.0" text="Location" />
+            <TableColumn fx:id="typeColumn" prefWidth="49.0" text="Type" />
+            <TableColumn fx:id="startColumn" prefWidth="51.0" text="Start" />
+            <TableColumn fx:id="endColumn" prefWidth="66.0" text="End" />
+            <TableColumn fx:id="customer_idColumn" text="Customer ID" />
+            <TableColumn fx:id="contact_idColumn" prefWidth="90.0" text="Contact ID" />
+            <TableColumn fx:id="user_idColumn" prefWidth="76.0" text="User ID" />
         </columns>
       </TableView>
       <Button fx:id="backButton" layoutX="14.0" layoutY="403.0" mnemonicParsing="false" onAction="#backButton" text="Back" />

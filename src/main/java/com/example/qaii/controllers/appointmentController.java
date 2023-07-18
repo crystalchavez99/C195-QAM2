@@ -30,15 +30,17 @@ import java.time.format.DateTimeFormatter;
 
 public class appointmentController {
 
-//    @FXML
-//    private TableView<Appointment> appointmentTable;
+    @FXML
+    private TableView<Appointment> appointmentTable;
 //
 //    ObservableList<Appointment> appointmentList = FXCollections.observableArrayList();
 //
 //    @FXML
 //    private TableColumn<Appointment, Integer> appointment_id;
-//    @FXML
-//    private TableColumn<Appointment, String> title;
+@FXML
+private TableColumn<Appointment, String> titleColumn;
+    @FXML
+    private TableColumn<Appointment, String> descriptionColumn;
 //    @FXML
 //    private TableColumn<Appointment, String> description;
 //    @FXML
@@ -69,6 +71,10 @@ public class appointmentController {
     @FXML
     public void initialize() throws SQLException {
         ObservableList<Appointment> getAllAppointments = AppointmentDB.getAllAppointments();
+        PropertyValueFactory<Appointment, String> apptTitle= new PropertyValueFactory<>("Title");
+        titleColumn.setCellValueFactory(apptTitle);
+        PropertyValueFactory<Appointment, String> apptDescription= new PropertyValueFactory<>("Description");
+        descriptionColumn.setCellValueFactory(apptDescription);
 //        appointment_id.setCellValueFactory(new PropertyValueFactory<>("appointment_id"));
 //        title.setCellValueFactory(new PropertyValueFactory<>("title"));
 //        description.setCellValueFactory(new PropertyValueFactory<>("description"));
