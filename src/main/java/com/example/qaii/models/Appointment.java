@@ -3,6 +3,7 @@ package com.example.qaii.models;
 import java.time.LocalDateTime;
 
 public class Appointment {
+    private String endString;
     private  String startString;
     private  String user;
     private String customer_name;
@@ -82,6 +83,10 @@ public class Appointment {
         this.customer_name = customer_name;
         this.user = user;
 
+
+    }
+
+    public Appointment(int appointment_id, String appointment_title, String appointment_description, String appointment_location, String appointment_type, LocalDateTime start, LocalDateTime end, int customer_id, int user_id, int contact_id, int division_id) {
 
     }
 
