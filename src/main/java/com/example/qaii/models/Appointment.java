@@ -3,6 +3,7 @@ package com.example.qaii.models;
 import java.time.LocalDateTime;
 
 public class Appointment {
+    private String contact_id;
     private String endString;
     private  String startString;
     private  String user;
@@ -33,7 +34,6 @@ public class Appointment {
 
     private int user_id;
 
-    private Contact contact_id;
 
     /*
     The constructor for the Appointment
@@ -66,7 +66,7 @@ public class Appointment {
         this.last_update_by = last_update_by;
         this.customer_id = customer_id;
         this.user_id = user_id;
-        this.contact_id = contact_id;
+        this.contact_id = String.valueOf(contact_id);
     }
 
     public Appointment(int appointment_id, int customer_id, int user_id, String title, String description, String location, String contact, String type,
@@ -89,6 +89,20 @@ public class Appointment {
     public Appointment(int appointment_id, String appointment_title, String appointment_description, String appointment_location, String appointment_type, LocalDateTime start, LocalDateTime end, int customer_id, int user_id, int contact_id, int division_id) {
 
     }
+
+    public Appointment(int appointmentID, int customerID, int userID, String title, String description, String location, String contact, String type, String localStartDT, String localEndDT) {
+        setAppointmentId(appointmentID);
+        setCustomerId(customerID);
+        setUserId(userID);
+        setTitle(title);
+        setDescription(description);
+        setLocation(location);
+        setContact(contact);
+        setType(type);
+        setStart(LocalDateTime.parse(localStartDT));
+        setEnd(LocalDateTime.parse(localEndDT));
+    }
+
 
     /*
     Getter: gets to return appointment_id
@@ -326,7 +340,7 @@ public class Appointment {
  Getter: gets to return contact_id
   @return contact_id
   */
-    public Contact getContact() {
+    public String getContact() {
         return contact_id;
     }
 
@@ -334,7 +348,7 @@ public class Appointment {
     Sets the contact_id for Appointment
     @param contact_id
      */
-    public void setContact(Contact contact_id) {
+    public void setContact(String contact_id) {
         this.contact_id = contact_id;
     }
 
